@@ -4,7 +4,25 @@ class Users:
         'Creates new password and username when initiallized'
         self.username=username
         self.password=login_password
-    def save_password (self):
-        Users.user_login.append(self)
-        "A  deifintion that takes in the self object and pushed it to the created array to store the passord"
-    
+    def add_user(self):
+        '''
+        add user details method saves user object into users list
+        '''
+        Users.users_list.append(self)
+    def delete_user(self):
+        '''
+        delete user details method removes user object from users list
+        '''
+        Users.users_list.remove(self)
+    @classmethod
+    def find_by_username(cls, username):
+        '''
+        authenticate user username
+        Args: 
+        username : name used by user to login
+        Returns: 
+        user
+        '''
+        for user in Users.users_list:
+            if user.username == username:
+                return user
