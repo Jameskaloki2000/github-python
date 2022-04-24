@@ -6,7 +6,7 @@ class Credentials:
     class that generates new credentials
     '''
     credentials_list=[]
-    def __init__(self):
+    def __init__(self,application_name,account_username,account_password):
         '''
          __init method that helps us define properties for our objects
         Args:
@@ -14,5 +14,11 @@ class Credentials:
         account_username: New account username
         account_password: New account password
         '''
-        pass
-    
+        self.application_name = application_name
+        self.account_username = account_username
+        self.account_password = account_password
+    def add_credentials(self):
+        '''
+        add_credentials method that saves credentials into credentials_list
+        '''
+        Credentials.credentials_list.append(self)
