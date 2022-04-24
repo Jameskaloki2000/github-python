@@ -33,3 +33,15 @@ class Credentials:
         method that returns a list of all credentials
         '''
         return Credentials.credentials_list
+    @classmethod
+    def find_by_application_name(cls, application_name):
+        '''
+        Method that takes in an application name and returns the credentials for the said application
+        Args:
+        application_name: name of application credentials to be found
+        Returns:
+        Credentials of the application
+        '''
+        for credential in Credentials.credentials_list:
+            if credential.application_name == application_name:
+                return credential
