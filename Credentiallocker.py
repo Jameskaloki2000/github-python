@@ -45,3 +45,13 @@ class Credentials:
         for credential in Credentials.credentials_list:
             if credential.application_name == application_name:
                 return credential
+    @staticmethod
+    def generate_password(passwordLength):
+        lower=string.ascii_lowercase
+        upper=string.ascii_uppercase
+        num=string.digits
+        symbol=string.punctuation
+        all=lower+upper+num+symbol
+        password=random.sample(all,passwordLength)
+        return password
+
