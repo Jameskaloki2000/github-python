@@ -10,8 +10,8 @@ class TestUsers(unittest.TestCase):
         '''
         test_initialization case to test whether the object is being initialised properly
         '''
-        self.assertEqual(self.new_user.username, "Lorna")
-        self.assertEqual(self.new_user.login_password, "97")
+        self.assertEqual(self.new_user.username, "James")
+        self.assertEqual(self.new_user.login_password, "2000")
     def test_add_user(self):
         '''
         test_add_user test case to test if the contact object is saved into the users list
@@ -30,6 +30,19 @@ class TestUsers(unittest.TestCase):
         self.new_user.add_user()
         test_user = Users("Samuel", "2000")
         test_user.add_user()
+        self.assertEqual(len(Users.users_list), 2)
+    
+    def test_remove_users(self):
+        '''
+        test_remove_users to test if we can remove a user from our user list
+        '''
+        self.new_user.add_user()
+        test_user = Users("Samuel", "2000")
+        test_user.add_user()
+        test_user1 = Users("Wanja", "1")
+        test_user1.add_user()
+
+        test_user.delete_user()
         self.assertEqual(len(Users.users_list), 2)    
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main() 
