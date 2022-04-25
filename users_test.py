@@ -18,5 +18,10 @@ class TestUsers(unittest.TestCase):
         '''
         self.new_user.add_user()
         self.assertEqual(len(Users.users_list), 1)
+    def tearDown(self):
+        '''
+        tearDown method that does clean up after each test case has run
+        '''
+        Users.users_list = []
 if __name__ == '__main__':
     unittest.main()
