@@ -23,5 +23,13 @@ class TestUsers(unittest.TestCase):
         tearDown method that does clean up after each test case has run
         '''
         Users.users_list = []
+    def test_add_multiple_users(self):
+        '''
+        test_add_multiple_users to check if we can save multiple user objects to our users_list
+        '''
+        self.new_user.add_user()
+        test_user = Users("Samuel", "2000")
+        test_user.add_user()
+        self.assertEqual(len(Users.users_list), 2)    
 if __name__ == '__main__':
     unittest.main()
